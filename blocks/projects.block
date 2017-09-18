@@ -1,4 +1,4 @@
-<img src="https://static1.squarespace.com/static/59a1c9504c0dbf71dd4f248e/t/59c01e276f4ca3a444312771/1505763024220/Solutions+1st+Choice+%28Banner+Page%29.jpg" alt="">
+<img src="https://static1.squarespace.com/static/59a1c9504c0dbf71dd4f248e/t/59c01e276f4ca3a444312771/1505763024220/Solutions+1st+Choice+%28Banner+Page%29.jpg" alt="" style="margin: 25px auto;width: 100%;max-height: 70vh;">
 <div class="index-section-wrapper page-content projects-content {.equal? title "4"}four{.end} {.equal? title "5"}five{.end}">
   <squarespace:block-field id="{id}" columns="12" label="Content" />
   <div class="projects-filter">
