@@ -1,8 +1,5 @@
 {.section collection}
   {.repeated section collections}
-
-    {.equal? typeName "gallery"}
-
     {.equal? typeName "projects"}
       {@|apply projects.block}
       {.or}
@@ -12,6 +9,7 @@
         </div>
       </div>
     {.end}
+    {.equal? typeName "gallery"}
 
       <section id="{urlId}" class="Index-gallery" data-controller="IndexGallery" data-collection-id="{id}">
         <div class="Index-gallery-wrapper">
