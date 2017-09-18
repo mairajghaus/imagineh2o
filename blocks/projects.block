@@ -1,10 +1,4 @@
-<style media="screen">
-  #new-page-1 .Index-page-content {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-  }
-</style>
+
 <div class="index-section-wrapper page-content projects-content {.equal? title "4"}four{.end} {.equal? title "5"}five{.end}">
   <squarespace:block-field id="{id}" columns="12" label="Content" />
   <div class="projects-filter">
