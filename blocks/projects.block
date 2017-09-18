@@ -1,0 +1,115 @@
+<div class="index-section-wrapper page-content projects-content {.equal? title "4"}four{.end} {.equal? title "5"}five{.end}">
+  <squarespace:block-field id="{id}" columns="12" label="Content" />
+  <div class="projects-filter" style="display:none;">
+    <div>
+      <div class="portfolio-current-filter">Portfolio</div>
+      <div class="portfolio-filter-button">
+        FILTER PORTFOLIO
+        <i><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="23" height="32" viewBox="0 0 23 32" class="injected-svg iconic iconic-sm" data-src="https://rockhealth.com/wp-content/themes/rockhealth/-/img_min/arrow-down.svg">
+        <path fill="#444444" d="M11.592 21.959l-11.265-11.102 0.571-0.571 10.694 10.531 10.612-10.531 0.571 0.571z"></path>
+        </svg></i>
+      </div>
+    </div>
+    <ul class="portfolio-filters-list hide" style="display: none;">
+      <li class="f-all">
+        <i>
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="23" height="32" viewBox="0 0 23 32" class="injected-svg iconic iconic-sm" data-src="https://rockhealth.com/wp-content/themes/rockhealth/-/img_min/close.svg">
+            <path d="M22.776 5.388l-0.571-0.571-10.612 10.612-10.694-10.612-0.571 0.571 10.612 10.612-10.612 10.531 0.571 0.571 10.694-10.531 10.612 10.531 0.571-0.571-10.612-10.531z"></path>
+          </svg>
+        </i>
+        CLEAR FILTERS
+      </li>
+    </ul>
+  </div>
+  <div class="projects-wrap">
+    {.repeated section items}
+      <div class="project-item" data-tags="{tags}">
+        <a href="{sourceUrl}" target="_blank">
+        <div class="project-item-content" style="background: url({assetUrl});"></div>
+        <div class="project-item-text">
+          <h2 class="pj-tl"><b>{title}</b></h2>
+          {excerpt}
+        </div>
+        </a>
+      </div>
+    {.end}
+    <div class="project-item v-all" style="display:none;">
+      <a>
+        <div class="project-item-content"></div>
+        <div class="project-item-text">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="32" height="32" viewBox="0 0 32 32" class="injected-svg iconic" data-src="https://rockhealth.com/wp-content/themes/rockhealth/-/img_min/arrow-angle.svg"> <path d="M11.2 6.080v2.133h11.093l-16.213 16.213 1.493 1.493 16.213-16.213v11.093h2.133v-14.72z"></path> </svg> <h2><b>View all<br>companies</b></h2>
+        </div>
+      </a>
+    </div>
+  </div>
+  <script>
+    function toggle_open() {
+      $(".portfolio-filters-list.hide").show();
+      $(".portfolio-filter-button").toggleClass("open");
+
+      setTimeout(function(){ $(".projects-wrap").toggleClass("open");}, 20);
+      setTimeout(function(){ $(".portfolio-filters-list").toggleClass("hide");}, 100);
+      setTimeout(function(){ $(".portfolio-filters-list.hide").hide();}, 300);
+    }
+
+    function filter_items(tag){
+      $(".project-item").hide();
+      $(".project-item:not('.v-all')").each(function(){
+        if($(this).attr('data-tags').indexOf(tag) >= 0) {
+          $(this).show();
+        }
+      });
+      $(".project-item.v-all").show();
+    }
+
+    function filter_all() {
+      $(".project-item").show();
+      $(".project-item.v-all").hide();
+    }
+
+    function sortUsingNestedText(parent, childSelector, keySelector) {
+        var items = parent.children(childSelector).sort(function(a, b) {
+            var vA = $(keySelector, a).text().toLowerCase();
+            var vB = $(keySelector, b).text().toLowerCase();
+            return (vA < vB) ? -1 : (vA > vB) ? 1 : 0;
+        });
+        parent.append(items);
+    }
+
+    sortUsingNestedText($('.projects-wrap'), "div", ".pj-tl");
+
+    $.getJSON("{fullUrl}?format=json", function(result){
+      var tags = result.collection.tags
+
+      console.log(result);
+      if (tags.length != 0) {
+        $(".projects-filter").show();
+        $.each(tags,function(i, item){
+          $(".portfolio-filters-list").append("<li class='f-item'>"+item+"</li>")
+        });
+      }
+
+      $(".portfolio-filter-button").click(function(){
+        toggle_open();
+      });
+
+      $(".portfolio-filters-list>li.f-item").click(function(){
+        toggle_open();
+        var current_filter = $(this).text();
+        $(".portfolio-current-filter").text("Portfolio: "+current_filter);
+        filter_items(current_filter);
+      });
+
+      $(".portfolio-filters-list>li.f-all").click(function(){
+        toggle_open();
+        $(".portfolio-current-filter").text("Portfolio");
+        filter_all();
+      });
+
+      $(".project-item.v-all").click(function() {
+        $(".portfolio-current-filter").text("Portfolio");
+        filter_all();
+      });
+    });
+  </script>
+</div>
