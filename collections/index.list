@@ -106,7 +106,6 @@
     {.equal? typeName "projects"}
       {@|apply projects.block}
       <div class="index-section-wrapper page-content">
-        <div class="sqs-layout sqs-grid-12 columns-12" data-layout-label="Content" data-type="block-field" data-updated-on="1487378419579" id="58a6124617bffc3455eea788"><div class="row sqs-row"><div class="col sqs-col-12 span-12"><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-5ef70284ab7290531f82"><div class="sqs-block-content"><p class="text-align-center"><strong>IMAGINE H2O PORTFOLIO<br>2010 - Present</strong></p><p class="text-align-center">Selection of alumni companies</p></div></div></div></div></div>
         <div class="content-inner{.section mainContent} has-content{.end}" data-content-field="main-content">
           {mainContent}
         </div>
