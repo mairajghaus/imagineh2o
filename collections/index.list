@@ -102,16 +102,14 @@
 
     {.end}
 
-    {.or}
-      {.equal? typeName "projects"}
-        {@|apply projects.block}
-        {.or}
-        <div class="index-section-wrapper page-content">
-          <div class="content-inner{.section mainContent} has-content{.end}" data-content-field="main-content">
-            {mainContent}
-          </div>
+
+    {.equal? typeName "projects"}
+      {@|apply projects.block}
+      <div class="index-section-wrapper page-content">
+        <div class="content-inner{.section mainContent} has-content{.end}" data-content-field="main-content">
+          {mainContent}
         </div>
-      {.end}
+      </div>
     {.end}
 
 
