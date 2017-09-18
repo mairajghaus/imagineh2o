@@ -1,6 +1,6 @@
 <div class="index-section-wrapper page-content projects-content {.equal? title "4"}four{.end} {.equal? title "5"}five{.end}">
   <squarespace:block-field id="{id}" columns="12" label="Content" />
-  <div class="projects-filter" style="display:none;">
+  <div class="projects-filter">
     <div>
       <div class="portfolio-current-filter">Portfolio</div>
       <div class="portfolio-filter-button">
