@@ -100,7 +100,15 @@
           {.end}
         {.end}
       </section>
-
+      {.equal? typeName "projects"}
+        {@|apply projects.block}
+      {.or}
+      <div class="index-section-wrapper page-content">
+        <div class="content-inner{.section mainContent} has-content{.end}" data-content-field="main-content">
+          {mainContent}
+        </div>
+      </div>
+      {.end}
     {.end}
 
   {.end}
